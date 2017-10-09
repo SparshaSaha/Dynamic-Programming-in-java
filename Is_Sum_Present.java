@@ -1,3 +1,10 @@
+/*
+DESCRIPTION::--
+This program finds if a particular sum can be formed by the given elements in an array
+where repetation of elements is allowed
+
+*/
+
 import java.util.*;
 class Is_Sum_Present
 {
@@ -27,26 +34,19 @@ class Is_Sum_Present
     int sum[]=new int[n+1];
     sum[0]=1;
 
-    for(int i=1;i<=sum.length;i++)
+    for(int i=1;i<sum.length;i++)
     {
       for(int j=0;j<a.length;j++)
       {
-        if(a[j]<i)
-        {
-          if(sum[i-a[j]]==1)
+          if(i-a[j]>=0 && sum[i-a[j]]==1){
           sum[i]=1;
           break;
         }
       }
     }
 
-    for(int i=0;i<sum.length;i++)
-    {
-      System.out.print(sum[i]+" ,");
-    }
-    System.out.println();
 
-    return sum[n];
+    return sum[sum.length-1];
   }
 
 }
